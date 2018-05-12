@@ -1,0 +1,37 @@
+[
+	{
+		"ident" : "bot",
+		"nickname": "discordYeah",
+		"server": "irc.quakenet.org",
+		"discordToken": "bot_token",
+
+		"channelDiscord" : "discord_channel_id",
+		"channelIrc" : "#discordTest",
+
+		"ircAuthName" : "auth",
+		"ircAuthPassword" : "pass",
+		"ircMode" : "+x",
+
+		"format": { 
+		  	"ircText": "[DIS] <{$displayUsername}> {$text}",
+		  	"urlAttachment": "<{$displayUsername}> {$attachmentURL}",
+		  	"discord": "[IRC] **<{$author}>** {$withMentions}"
+		},
+		"textCommands": {
+			"about": [
+				"°| This is DEV version of PUGBOT which processing multiple message sources (irc, discord) build on node.js technology. |°",
+				"°| In current version is allowed all admin commands like .reset use .addRandom to insert random player for testing. |°",
+				"",
+				"°| Github: comming soom |°",
+				"°| Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7y-Uo8QLNMQh6OI/edit?usp=sharing |°",
+				"°| Discord testing channel: https://discord.gg/qKaNsp |°",
+				"",
+				"°| Feel free to comment or add feature request - all realistic things should be included. |°"
+			]
+		},
+		"authUsers": {
+			"mixeh" : 10,
+			"280500127611748353" : 10
+		}
+	}
+]
