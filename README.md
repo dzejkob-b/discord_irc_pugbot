@@ -11,6 +11,8 @@ Other sources:
 * https://discord.js.org
 * https://github.com/mapbox/node-sqlite3
 
+Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7y-Uo8QLNMQh6OI/edit?usp=sharing
+
 ## Bot commands
 
 * **help** - Shows help information. Usage: !help [command]
