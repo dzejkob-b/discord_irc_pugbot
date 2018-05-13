@@ -37,7 +37,6 @@ dist/
 # Other
 
 .idea/
-README.md
 stats.db
 stats.txt
 log.txt
