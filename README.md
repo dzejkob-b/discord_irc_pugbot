@@ -1,6 +1,6 @@
 # Discord - irc pugbot
 
-This is PUGBOT which processing multiple message sources (irc, discord) build on node.js technology. **Project is still in development**.
+This is PUGBOT for pickup games which processing multiple message sources (irc, discord) build on node.js technology. **Project is still in development**.
 
 Bot is inspired by old mIRC script mostly used for UT99 games: https://github.com/spydeee/PugBot - it implements most of its features and more.
 
