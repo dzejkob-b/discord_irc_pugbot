@@ -40,3 +40,5 @@ dist/
 README.md
 stats.db
 stats.txt
+log.txt
+log_debug.txt
