@@ -19,10 +19,11 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **join** - Join to pug. Usage: !join [pug]
 * **addplayer** - Add player to pug. Usage: !addplayer [pug] playername
 * **delplayer** - Remove player from pug. Usage: !delplayer [pug] playername
+* **rename** - Replace player in pug by someone else. Usage: !rename [pug] player newPlayer
 * **addrandom** - Adds random players to pug. Usage: !addrandom [pug] [playersCount] [tag]
 * **addcustom** - Adds custom imaginary player to pug. Usage: !addrandom [pug] playername [tag]
-* **leave** - Leave pug. Usage: !leave [pug]
-* **lva** - Leave all pugs you joined. Usage: !lva
+* **leave** - Leave pug. Usage: !leave [pug] [reason]
+* **lva** - Leave all pugs you joined. Usage: !lva [reason]
 * **list** - List all players which are joined to the pug. Usage: !list [pug]
 * **tag** - Add specific tag to your nick in pug. May use only alphanumeric characters. Usage: !tag [pug] value
 * **deltag** - Remove tag from nick. Usage: !deltag [pug]
@@ -36,12 +37,13 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **pick** - Pick player to your team (May use only captain). Usage: !pick playername|playernumber
 * **last** - Display last filled pug. Usage: !last [historycount]
 * **reset** - Reset pug to player picking and captain picking. Usage: !reset [pug]
-* **fullreset** - Reset pug to zero players. Usage: !reset [pug]
+* **fullreset** - Reset pug to zero players. Usage: !fullreset [pug]
+* **addhistory** - Add pug history entry. Usage: !addhistory [pug] [time] [player1] [player2] [player3] ...
 * **createpug** - Create pug. Usage: !createpug pugName playersCount [teamsCount]
 * **quickpug** - Create quickpug (Non-admin players are allowed to create one quickpug). Usage: !quickpug pugName playersCount [teamsCount]
 * **deletepug** - Delete pug (Non-admin players are allowed to delete only quickpug which they created). Usage: !deletepug pugName
 * **ban** - Ban user. Usage: !ban playername [hours]
-* **delban** - Delete ban. Usage: !ban playername
+* **delban** - Delete ban. Usage: !delban playername
 * **banlist** - Show banned users.
 * **rules** - Show rules,
 * **stats** - Display pug statistics of specific player. Usage: !stats [pug] playername
