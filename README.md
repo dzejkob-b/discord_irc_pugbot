@@ -45,6 +45,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **ban** - Ban user. Usage: !ban playername [hours]
 * **delban** - Delete ban. Usage: !delban playername
 * **banlist** - Show banned users.
+* **mention** - Mention and highlight user. Usage: !mention playername
 * **rules** - Show rules,
 * **stats** - Display pug statistics of specific player. Usage: !stats [pug] playername
 * **mystats** - Display your own statistics. Usage: !mystats
