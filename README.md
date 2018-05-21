@@ -29,7 +29,8 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **deltag** - Remove tag from nick. Usage: !deltag [pug]
 * **here** - Refresh your time information to prevent being kicked from inactivity. Usage: !here
 * **captain** - Force yourself to become captain (May use only when pug is filled). Usage: !captain
-* **setcaptain** - Force someone else to become captain (May use only when pug is filled). Usage: !setcaptain playername
+* **setcaptain** - Force someone else to become captain (May use only when pug is filled). Usage: !setcaptain playername [color]
+* **unsetcaptain** - Unset captain on some team and roll another one. Usage: !unsetcaptain color
 * **teams** - Show teams during player picks. Usage: !teams
 * **vote** - Vote for somebody to become a captain (May use only when pug is filled). Usage: !vote playername
 * **captainforce** Skip waiting and force random captain choose. Usage: !captainforce
@@ -46,7 +47,8 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **delban** - Delete ban. Usage: !delban playername
 * **banlist** - Show banned users.
 * **mention** - Mention and highlight user. Usage: !mention playername
-* **rules** - Show rules,
+* **rules** - Show rules. Usage: !rules
+* **rule* - Show specific rule. Usage !rule number
 * **stats** - Display pug statistics of specific player. Usage: !stats [pug] playername
 * **mystats** - Display your own statistics. Usage: !mystats
 * **userinfo** - Display user info. Usage: !userinfo playername
