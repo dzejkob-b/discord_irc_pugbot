@@ -33,7 +33,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **unsetcaptain** - Unset captain on some team and roll another one. Usage: !unsetcaptain color
 * **teams** - Show teams during player picks. Usage: !teams
 * **vote** - Vote for somebody to become a captain (May use only when pug is filled). Usage: !vote playername
-* **captainforce** Skip waiting and force random captain choose. Usage: !captainforce
+* **captainforce** - Skip waiting and force random captain choose. Usage: !captainforce
 * **turn** - Display which captain is currently picking players. Usage: !turn
 * **pick** - Pick player to your team (May use only captain). Usage: !pick playername|playernumber
 * **last** - Display last filled pug. Usage: !last [historycount]
@@ -46,6 +46,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **ban** - Ban user. Usage: !ban playername [hours]
 * **delban** - Delete ban. Usage: !delban playername
 * **banlist** - Show banned users.
+* **discord** - List available discord players. Usage: !discord
 * **mention** - Mention and highlight user. Usage: !mention playername
 * **rules** - Show rules. Usage: !rules
 * **rule** - Show specific rule. Usage !rule number
