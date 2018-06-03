@@ -1,6 +1,6 @@
 # Discord - irc pugbot
 
-This is PUGBOT for pickup games which processing multiple message sources (irc, discord) build on node.js technology. **Project is still in development**.
+This is PUGBOT for pickup games which processing multiple message sources (irc, discord) build on node.js technology. **The project is still in development**.
 
 Bot is inspired by old mIRC script mostly used for UT99 games: https://github.com/spydeee/PugBot - it implements most of its features and more.
 
@@ -64,9 +64,9 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
             
 ## Configuration
 
-Basic configuration entries is specified in **config.json** in [json format](https://www.json.org/). When the bot starts, it creates **config_live.json** and copies some configurations (like text commands) which are configurable trough bot commands.
+Basic configuration entries are specified in **config.json** in [json format](https://www.json.org/). When the bot starts, it creates **config_live.json** and copies some configurations (like text commands) which are configurable trough bot commands.
 
-Sample configuration is in **config_sample.json** - just copy and modify:
+The sample configuration is in **config_sample.json** - just copy and modify:
 
 * **ident** - bot identification. Keep one permanent id for one bot application.
 * **nickname** - bot nickname on irc.
@@ -98,7 +98,7 @@ Follow these steps:
 * set the configuration configuration (described above)
 * run **./build_run.sh &**
 
-May check **log.txt** for errors. If bot does not working, kill that process and run **./build_run_debug.sh** to see verbose output.
+May check **log.txt** for errors. If bot does not work, kill that process and run **./build_run_debug.sh** to see the verbose output.
 
 ## Setting up discord bot
 
