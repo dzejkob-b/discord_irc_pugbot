@@ -64,7 +64,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
             
 ## Configuration
 
-Basic configuration entries is specified in **config.json** in [json format](https://www.json.org/). When the bot starts, it creates **config_live.json** which copies some configurations (like text commands) which are configurable trough bot commands.
+Basic configuration entries is specified in **config.json** in [json format](https://www.json.org/). When the bot starts, it creates **config_live.json** and copies some configurations (like text commands) which are configurable trough bot commands.
 
 Sample configuration is in **config_sample.json** - just copy and modify:
 
@@ -83,6 +83,8 @@ Sample configuration is in **config_sample.json** - just copy and modify:
 * **format** - variable formatting of cross messages.
 * **textCommands** - predefined text commands (each command must be defined as array of strings).
 * **authUsers** - users and they auth levels (discord ids, irc auths or irc hosts).
+
+When bot starts it also creates **persistent.json** file, which contains current state.
 
 ## Installation
 
