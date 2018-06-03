@@ -62,3 +62,49 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **quit** - Quit bot.
 * **restart** - Restart bot.
             
+## Configuration
+
+Basic configuration entries is specified in **config.json** in [json format](https://www.json.org/). When the bot starts, it creates **config_live.json** which copies some configurations (like text commands) which are configurable trough bot commands.
+
+Sample configuration is in **config_sample.json** - just copy and modify:
+
+* **ident** - bot identification. Keep one permanent id for one bot application.
+* **nickname** - bot nickname on irc.
+* **server** - irc server.
+* **discordToken** - discord bot application token (described below).
+* **discordClientId** - discord bot application client id (described below).
+* **channelDiscord** - bot channel id (described below).
+* **channelIrc** - channel on irc.
+* **discordDisable** - set true to disable bot on discord.
+* **ircDisable** - set true to disable bot on irc (one message source must remain enabled).
+* **ircAuthName** - irc authentification user (uses AUTH command and PRIVMSG Q@CServe.quakenet.org for quakenet).
+* **ircAuthPassword** - irc authentification password.
+* **ircMode** - additional irc mode.
+* **format** - variable formatting of cross messages.
+* **textCommands** - predefined text commands (each command must be defined as array of strings).
+* **authUsers** - users and they auth levels (discord ids, irc auths or irc hosts).
+
+## Installation
+
+The bot requires [nodejs](https://nodejs.org/) of version at least v6.14.
+
+Follow these steps:
+
+* fetch this git branch to some directory
+* enter that directory
+* run **npm update**
+* set the configuration configuration (described above)
+* run **./build_run.sh &**
+
+May check **log.txt** for errors. If bot does not working, kill that process and run **./build_run_debug.sh** to see verbose output.
+
+## Setting up discord bot
+
+Follow these instructions: https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token
+
+Get application client id and token - and put it to bot configuration.
+
+To make bot join your channel, follow this link (with corresponding client id):
+https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID_HERE&scope=bot&permissions=0
+
+To get discord channel id, follow these steps: https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
