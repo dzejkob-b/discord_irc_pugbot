@@ -4,9 +4,13 @@
 		"nickname": "discordYeah",
 		"server": "irc.quakenet.org",
 		"discordToken": "bot_token",
+		"discordClientId": "app_client_id",
 
 		"channelDiscord" : "discord_channel_id",
 		"channelIrc" : "#discordTest",
+
+		"discordDisable" : false,
+		"ircDisable" : false,
 
 		"ircAuthName" : "auth",
 		"ircAuthPassword" : "pass",
@@ -18,9 +22,9 @@
 		  	"discord": "[IRC] **<{$author}>** {$withMentions}"
 		},
 		"textCommands": {
-			"about": [
-				"This is DEV version of PUGBOT which processing multiple message sources (irc, discord) build on node.js technology.",
-				"Github: https://github.com/dzejkob-b/discord_irc_pugbot"
+			"help": [
+				"Hello!",
+				"This is bot."
 			]
 		},
 		"authUsers": {
