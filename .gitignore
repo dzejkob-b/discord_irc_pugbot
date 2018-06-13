@@ -37,6 +37,7 @@ dist/
 # Other
 
 .idea/
+crash
 stats.db
 stats.txt
 log.txt
