@@ -1,6 +1,6 @@
 # Discord - irc pugbot
 
-This is PUGBOT for pickup games which processing multiple message sources (irc, discord) build on node.js technology. **The project is still in development**.
+This is PUGBOT for pickup games which processing multiple message sources (IRC, Discord) build on node.js technology. **The project is still in development**.
 
 Bot is inspired by old mIRC script mostly used for UT99 games: https://github.com/spydeee/PugBot - it implements most of its features and more.
 
@@ -45,11 +45,11 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **createpug** - Create pug. Usage: !createpug pugName playersCount [teamsCount]
 * **quickpug** - Create quickpug (Non-admin players are allowed to create one quickpug). Usage: !quickpug pugName playersCount [teamsCount]
 * **deletepug** - Delete pug (Non-admin players are allowed to delete only quickpug which they created). Usage: !deletepug pugName
-* **ban** - Ban user. For irc users when using MASK the "playername" represents ban key. Usage: !ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
+* **ban** - Ban user. For IRC users when using MASK the "playername" represents ban key. Usage: !ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
 * **bandef** - Show ban definition - return ban command for possible update. Usage: !bandef [playername|key]
 * **delban** - Delete ban. Usage: !delban playername
 * **banlist** - Show banned users.
-* **discord** - List available discord players. Usage: !discord
+* **discord** - List available Discord players. Usage: !discord
 * **mention** - Mention and highlight user. Usage: !mention playername
 * **rules** - Show rules. Usage: !rules
 * **rule** - Show specific rule. Usage !rule number
@@ -72,20 +72,20 @@ Basic configuration entries are specified in **config.json** in [json format](ht
 The sample configuration is in **config_sample.json** - just copy and modify:
 
 * **ident** - bot identification. Keep one permanent id for one bot application.
-* **nickname** - bot nickname on irc.
-* **server** - irc server.
-* **discordToken** - discord bot application token (described below).
-* **discordClientId** - discord bot application client id (described below).
+* **nickname** - bot nickname on IRC.
+* **server** - IRC server.
+* **discordToken** - Discord bot application token (described below).
+* **discordClientId** - Discord bot application client id (described below).
 * **channelDiscord** - bot channel id (described below).
-* **channelIrc** - channel on irc.
-* **discordDisable** - set true to disable bot on discord.
-* **ircDisable** - set true to disable bot on irc (one message source must remain enabled).
-* **ircAuthName** - irc authentification user (uses AUTH command and PRIVMSG Q@CServe.quakenet.org for quakenet).
-* **ircAuthPassword** - irc authentification password.
-* **ircMode** - additional irc mode.
+* **channelIrc** - channel on IRC.
+* **discordDisable** - set true to disable bot on Discord.
+* **ircDisable** - set true to disable bot on IRC (one message source must remain enabled).
+* **ircAuthName** - IRC authentification user (uses AUTH command and PRIVMSG Q@CServe.quakenet.org for quakenet).
+* **ircAuthPassword** - IRC authentification password.
+* **ircMode** - additional IRC mode.
 * **format** - variable formatting of cross messages.
 * **textCommands** - predefined text commands (each command must be defined as array of strings).
-* **authUsers** - users and they auth levels (discord ids, irc auths or irc hosts).
+* **authUsers** - users and they auth levels (Discord ids, IRC auths or IRC hosts).
 
 When bot starts it also creates **persistent.json** file, which contains current state.
 
@@ -104,7 +104,7 @@ Follow these steps:
 
 May check **log.txt** for errors. If bot does not work, kill that process and run **./build_run_debug.sh** to see the verbose output.
 
-## Setting up discord bot
+## Setting up Discord bot
 
 Follow these instructions: https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token
 
@@ -113,37 +113,37 @@ Get application client id and token - and put it to bot configuration.
 To make bot join your channel, follow this link (with corresponding client id):
 https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID_HERE&scope=bot&permissions=0
 
-To get discord channel id, follow these steps: https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
+To get Discord channel id, follow these steps: https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
 
 ## How to BAN users
 
 There are more possibilities, how to ban players. The ban command format is:
 
-!ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
+```!ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]```
 
-If player does not exist, you must specify ban mask for hostname. Otherwise it bans specific player by ID on discord or by AUTH on irc. If you dont specify duration, than ban is permanent.
+If the player does not exist, you must specify ban mask for the hostname. Otherwise, it bans specific player by ID on Discord or by AUTH on IRC. If you don't specify a duration, then the ban is permanent.
 
-## BAN examples:
+### BAN examples:
 
-On discord you simply ban player:
+On Discord you simply ban player:
 
-!ban player duration:24
-!ban discord:player duration:24
+```!ban player duration:24
+!ban discord:player duration:24```
 
-On irc you may ban specific player - but the player **must** be online and **authed**:
+On IRC you may ban specific player - but the player **must** be online and **authed**:
 
-!ban irc_player
+```!ban irc_player```
 
-Otherwise you must specify regexp masks (make sure you have correctly escaped mask):
+Otherwise, you must specify regexp masks (make sure you have correctly escaped mask):
 
-!ban some_player duration:24 mask:player\.users.*
+```!ban some_player duration:24 mask:player\.users.*```
 
 Or specify more masks:
 
-!ban some_player duration:24 reason:denied mask:player\.users.* mask:smt\.net\.dk.*
+```!ban some_player duration:24 reason:denied mask:player\.users.* mask:smt\.net\.dk.*```
 
-When you want update ban, type bandef command:
+When you want update ban, type !bandef command:
 
-!bandef some_player
+```!bandef some_player```
 
-It shows ban command with all parameters to futher updates.
+It shows ban command with all parameters to further updates.
