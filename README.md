@@ -119,7 +119,9 @@ To get Discord channel id, follow these steps: https://support.discordapp.com/hc
 
 There are more possibilities, how to ban players. The ban command format is:
 
-```!ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]```
+```
+!ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
+```
 
 If the player does not exist, you must specify ban mask for the hostname. Otherwise, it bans specific player by ID on Discord or by AUTH on IRC. If you don't specify a duration, then the ban is permanent.
 
@@ -127,23 +129,33 @@ If the player does not exist, you must specify ban mask for the hostname. Otherw
 
 On Discord you simply ban player:
 
-```!ban player duration:24
-!ban discord:player duration:24```
+```
+!ban player duration:24
+!ban discord:player duration:24
+```
 
 On IRC you may ban specific player - but the player **must** be online and **authed**:
 
-```!ban irc_player```
+```
+!ban irc_player
+```
 
 Otherwise, you must specify regexp masks (make sure you have correctly escaped mask):
 
-```!ban some_player duration:24 mask:player\.users.*```
+```
+!ban some_player duration:24 mask:player\.users.*
+```
 
 Or specify more masks:
 
-```!ban some_player duration:24 reason:denied mask:player\.users.* mask:smt\.net\.dk.*```
+```
+!ban some_player duration:24 reason:denied mask:player\.users.* mask:smt\.net\.dk.*
+```
 
 When you want update ban, type !bandef command:
 
-```!bandef some_player```
+```
+!bandef some_player
+```
 
 It shows ban command with all parameters to further updates.
