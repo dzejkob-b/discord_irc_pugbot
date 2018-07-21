@@ -28,11 +28,13 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **tag** - Add specific tag to your nick in pug. May use only alphanumeric characters. Usage: !tag [pug] value
 * **deltag** - Remove tag from nick. Usage: !deltag [pug]
 * **here** - Refresh your time information to prevent being kicked from inactivity. Usage: !here
+* **welcome** - Send welcome message to user. Usage: !welcome playername
 * **captain** - Force yourself to become captain (May use only when pug is filled). Usage: !captain
 * **setcaptain** - Force someone else to become captain (May use only when pug is filled). Usage: !setcaptain playername [color]
 * **unsetcaptain** - Unset captain on some team and roll another one. Usage: !unsetcaptain color
 * **teams** - Show teams during player picks. Usage: !teams
 * **vote** - Vote for somebody to become a captain (May use only when pug is filled). Usage: !vote playername
+* **unvote** - Remove your votes. Usage: !unvote
 * **captainforce** - Skip waiting and force random captain choose. Usage: !captainforce
 * **turn** - Display which captain is currently picking players. Usage: !turn
 * **pick** - Pick player to your team (May use only captain). Usage: !pick playername|playernumber
@@ -43,7 +45,8 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **createpug** - Create pug. Usage: !createpug pugName playersCount [teamsCount]
 * **quickpug** - Create quickpug (Non-admin players are allowed to create one quickpug). Usage: !quickpug pugName playersCount [teamsCount]
 * **deletepug** - Delete pug (Non-admin players are allowed to delete only quickpug which they created). Usage: !deletepug pugName
-* **ban** - Ban user. Usage: !ban playername [hours]
+* **ban** - Ban user. For irc users when using MASK the "playername" represents ban key. Usage: !ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
+* **bandef** - Show ban definition - return ban command for possible update. Usage: !bandef [playername|key]
 * **delban** - Delete ban. Usage: !delban playername
 * **banlist** - Show banned users.
 * **discord** - List available discord players. Usage: !discord
@@ -92,6 +95,7 @@ The bot requires [nodejs](https://nodejs.org/) of version at least v6.14.
 
 Follow these steps:
 
+
 * fetch this git branch to some directory
 * enter that directory
 * run **npm update**
@@ -110,3 +114,36 @@ To make bot join your channel, follow this link (with corresponding client id):
 https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID_HERE&scope=bot&permissions=0
 
 To get discord channel id, follow these steps: https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
+
+## How to BAN users
+
+There are more possibilities, how to ban players. The ban command format is:
+
+!ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
+
+If player does not exist, you must specify ban mask for hostname. Otherwise it bans specific player by ID on discord or by AUTH on irc. If you dont specify duration, than ban is permanent.
+
+## BAN examples:
+
+On discord you simply ban player:
+
+!ban player duration:24
+!ban discord:player duration:24
+
+On irc you may ban specific player - but the player **must** be online and **authed**:
+
+!ban irc_player
+
+Otherwise you must specify regexp masks (make sure you have correctly escaped mask):
+
+!ban some_player duration:24 mask:player\.users.*
+
+Or specify more masks:
+
+!ban some_player duration:24 reason:denied mask:player\.users.* mask:smt\.net\.dk.*
+
+When you want update ban, type bandef command:
+
+!bandef some_player
+
+It shows ban command with all parameters to futher updates.

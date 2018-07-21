@@ -30,6 +30,8 @@ node_modules
 config.json
 config_live.json
 persistent.json
+history.json
+welcome.json
 
 # Build
 dist/
