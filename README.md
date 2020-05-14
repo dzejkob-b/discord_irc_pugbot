@@ -132,6 +132,7 @@ On Discord you simply ban player:
 ```
 !ban player duration:24
 !ban discord:player duration:24
+!ban discord_id:123456 duration:24
 ```
 
 On IRC you may ban specific player - but the player **must** be online and **authed**:
