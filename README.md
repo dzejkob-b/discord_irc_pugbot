@@ -76,13 +76,32 @@ The sample configuration is in **config_sample.json** - just copy and modify:
 * **server** - IRC server.
 * **discordToken** - Discord bot application token (described below).
 * **discordClientId** - Discord bot application client id (described below).
-* **channelDiscord** - bot channel id (described below).
-* **channelIrc** - channel on IRC.
+* **channels** - Set of channel configuration where the bot is present. One of *channelDiscord* or *channelIrc* or both must be set per each key. Example:
+
+<pre>
+channels: {
+    'default' : {
+        'channelDiscord' : '123456',
+        'channelIrc' : '#first'
+    },
+    'second' : {
+        'channelDiscord' : '778899',
+        'channelIrc' : '#second'
+    },
+    'another' : {
+        'channelIrc' : '#third'
+    }
+}
+</pre>
+
+* **channelDiscord** - bot channel id (described below) *(old configuration)*
+* **channelIrc** - channel on IRC. *(old configuration)*
 * **discordDisable** - set true to disable bot on Discord.
 * **ircDisable** - set true to disable bot on IRC (one message source must remain enabled).
 * **ircAuthName** - IRC authentification user (uses AUTH command and PRIVMSG Q@CServe.quakenet.org for quakenet).
 * **ircAuthPassword** - IRC authentification password.
 * **ircMode** - additional IRC mode.
+* **ircFloodDelay** - minimum delay between two messages sent to irc (in msecs).
 * **format** - variable formatting of cross messages.
 * **textCommands** - predefined text commands (each command must be defined as array of strings).
 * **authUsers** - users and they auth levels (Discord ids, IRC auths or IRC hosts).
