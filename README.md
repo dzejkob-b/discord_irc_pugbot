@@ -59,6 +59,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **authlevel** - Display your auth-level. Usage: !authlevel
 * **grant** - Set auth-level to some user. Use negative values to ban. Usage: !grant playername authLevel
 * **delgrant** - Remove user from grant table. Usage: !delgrant playername
+* **grantlist** - List granted users. Usage: !grantlist
 * **addcmd** - Add text command. Usage: !addcmd [command] [text]
 * **delcmd** - Remove text command. Usage: !delcmd [command]
 * **say** - Say message. Usage: !say [message]
