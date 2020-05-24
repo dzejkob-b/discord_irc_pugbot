@@ -103,6 +103,7 @@ channels: {
 * **ircAuthPassword** - IRC authentification password.
 * **ircMode** - additional IRC mode.
 * **ircFloodDelay** - minimum delay between two messages sent to irc (in msecs).
+* **ircAuthUsersOnly** - allow specific actions to authed users only like .join (discord id or irc auth).
 * **format** - variable formatting of cross messages.
 * **textCommands** - predefined text commands (each command must be defined as array of strings).
 * **authUsers** - users and they auth levels (Discord ids, IRC auths or IRC hosts).
