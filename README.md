@@ -60,8 +60,15 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **grant** - Set auth-level to some user. Use negative values to ban. Usage: !grant playername authLevel
 * **delgrant** - Remove user from grant table. Usage: !delgrant playername
 * **grantlist** - List granted users. Usage: !grantlist
-* **addcmd** - Add text command. Usage: !addcmd [command] [text]
-* **delcmd** - Remove text command. Usage: !delcmd [command]
+* **channellist** - List configured channels and display channelKey of current channel. Usage: !channellist
+* **addcmd** - Add text command. For channel specific commands use *channelKey::* prefix. To exclude some command use *::DELETE* as text. For new line use *::NEWLINE* inside text. Usage: !addcmd command [text]
+
+<pre>
+    !addcmd secondChannel::info This is pugbot!::NEWLINE Another text.
+    !addcmd anotherChannel::servers ::DELETE
+</pre>
+
+* **delcmd** - Remove text command. Usage: !delcmd command
 * **say** - Say message. Usage: !say [message]
 * **quit** - Quit bot.
 * **restart** - Restart bot.
