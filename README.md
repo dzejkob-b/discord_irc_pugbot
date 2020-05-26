@@ -25,6 +25,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **leave** - Leave pug. Usage: !leave [pug] [reason]
 * **lva** - Leave all pugs you joined. Usage: !lva [reason]
 * **list** - List all players which are joined to the pug. Usage: !list [pug]
+* **listall** - List all pugs along all channels. Usage: !listall
 * **tag** - Add specific tag to your nick in pug. May use only alphanumeric characters. Usage: !tag [pug] value
 * **deltag** - Remove tag from nick. Usage: !deltag [pug]
 * **here** - Refresh your time information to prevent being kicked from inactivity. Usage: !here
@@ -38,6 +39,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **captainforce** - Skip waiting and force random captain choose. Usage: !captainforce
 * **turn** - Display which captain is currently picking players. Usage: !turn
 * **pick** - Pick player to your team (May use only captain). Usage: !pick playername|playernumber
+* **promote** - Promotes actual state of the pug on channel (use !promoteall to display on all channels). Usage: !promote [pug]
 * **last** - Display last filled pug. Usage: !last [historycount]
 * **reset** - Reset pug to player picking and captain picking. Usage: !reset [pug]
 * **fullreset** - Reset pug to zero players. Usage: !fullreset [pug]
