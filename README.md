@@ -65,6 +65,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 
 <pre>
     !addcmd secondChannel::info This is pugbot!::NEWLINE Another text.
+    !addcmd servers Some text with servers.
     !addcmd anotherChannel::servers ::DELETE
 </pre>
 
