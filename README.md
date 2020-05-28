@@ -15,7 +15,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 
 ## Bot commands
 
-* **help** - Shows help information. Usage: !help [command]
+* **command** - Shows documentation. Usage: !command [command]
 * **join** - Join to pug. Usage: !join [pug]
 * **addplayer** - Add player to pug. Usage: !addplayer [pug] playername
 * **delplayer** - Remove player from pug. Usage: !delplayer [pug] playername
@@ -54,7 +54,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **discord** - List available Discord players. Usage: !discord
 * **mention** - Mention and highlight user. Usage: !mention playername
 * **rules** - Show rules. Usage: !rules
-* **rule** - Show specific rule. Usage !rule number
+* **rule** - Show specific rule or remind user of a specific rule. Usage !rule number [user]
 * **stats** - Display pug statistics of specific player. Usage: !stats [pug] playername
 * **mystats** - Display your own statistics. Usage: !mystats
 * **userinfo** - Display user info. Usage: !userinfo playername
