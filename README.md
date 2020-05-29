@@ -26,6 +26,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **lva** - Leave all pugs you joined. Usage: !lva [reason]
 * **list** - List all players which are joined to the pug. Usage: !list [pug]
 * **listall** - List all pugs along all channels. Usage: !listall
+* **avgpick** - Display avg picks of players which are joined to the pug. Usage: !avgpick [pug]
 * **tag** - Add specific tag to your nick in pug. May use only alphanumeric characters. Usage: !tag [pug] value
 * **deltag** - Remove tag from nick. Usage: !deltag [pug]
 * **here** - Refresh your time information to prevent being kicked from inactivity. Usage: !here
@@ -105,6 +106,8 @@ channels: {
 }
 </pre>
 
+Note: irc channels become case-insensitive now - #tHiRd and #third are the same for message input. But the bot joins the channels as is typed in configuration.
+
 * **channelDiscord** - bot channel id (described below) *(old configuration)*
 * **channelIrc** - channel on IRC. *(old configuration)*
 * **discordDisable** - set true to disable bot on Discord.
@@ -165,6 +168,8 @@ On Discord you simply ban player:
 !ban discord:player duration:24
 !ban discord_id:123456 duration:24
 ```
+
+(If you want to specify user by discord_id you must enable some extended developer flag in discord settings to see "Copy ID" under each player or channel)
 
 On IRC you may ban specific player - but the player **must** be online and **authed**:
 
