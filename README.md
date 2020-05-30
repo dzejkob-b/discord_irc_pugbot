@@ -18,7 +18,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **command** - Shows documentation. Usage: !command [command]
 * **join** - Join to pug. Usage: !join [pug]
 * **addplayer** - Add player to pug. Usage: !addplayer [pug] playername
-* **delplayer** - Remove player from pug. Usage: !delplayer [pug] playername
+* **delplayer** - Remove player from pug. Optionally, you can specify the number of seconds after which the player cannot reconnect. Usage: !delplayer [pug] playername [timeout]
 * **rename** - Replace player in pug by someone else. Usage: !rename [pug] player newPlayer
 * **addrandom** - Adds random players to pug. Usage: !addrandom [pug] [playersCount] [tag]
 * **addcustom** - Adds custom imaginary player to pug. Usage: !addrandom [pug] playername [tag]
@@ -118,6 +118,7 @@ Note: irc channels become case-insensitive now - #tHiRd and #third are the same 
 * **ircFloodDelay** - minimum delay between two messages sent to irc (in msecs).
 * **ircAuthUsersOnly** - allow specific actions to authed users only like .join (discord id or irc auth).
 * **captainPicking** - default captain picking method. Possible values: *random* (default - captain is picked randomly), *avgpick* (prefered players with higher pick rating)
+* **rejoinTimeout** - default pug rejoin timeout in seconds.
 * **format** - variable formatting of cross messages.
 * **textCommands** - predefined text commands (each command must be defined as array of strings).
 * **authUsers** - users and they auth levels (Discord ids, IRC auths or IRC hosts).
