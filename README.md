@@ -29,6 +29,7 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **avgpick** - Display avg picks of players which are joined to the pug. Usage: !avgpick [pug]
 * **tag** - Add specific tag to your nick in pug. May use only alphanumeric characters. Usage: !tag [pug] value
 * **deltag** - Remove tag from nick. Usage: !deltag [pug]
+* **limitnocapt** - Limit the number of player "nocapt" tag. Usage: !limitnocapt [value].
 * **here** - Refresh your time information to prevent being kicked from inactivity. Usage: !here
 * **welcome** - Send welcome message to user. Usage: !welcome playername
 * **captain** - Force yourself to become captain (May use only when pug is filled). Usage: !captain
