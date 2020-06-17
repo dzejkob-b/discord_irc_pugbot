@@ -42,7 +42,9 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **turn** - Display which captain is currently picking players. Usage: !turn
 * **pick** - Pick player to your team (May use only captain). Usage: !pick playername|playernumber
 * **promote** - Promotes actual state of the pug on channel (use !promoteall to display on all channels). Usage: !promote [pug]
-* **last** - Display last filled pug. Usage: !last [historycount]
+* **last** - Display last filled pug. Usage: !last [pug] [historycount] [historyindex]
+* **plast** - Shows last filled pug of specified player. Usage: !plast [playername] [pug] [historycount] [historyindex]
+* **mylast** - Shows last filled pug of current player. Usage: !mylast [pug] [historycount] [historyindex]
 * **reset** - Reset pug to player picking and captain picking. Usage: !reset [pug]
 * **fullreset** - Reset pug to zero players. Usage: !fullreset [pug]
 * **addhistory** - Add pug history entry. Usage: !addhistory [pug] [time] [player1] [player2] [player3] ...
