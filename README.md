@@ -68,6 +68,9 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **grantlist** - List granted users. Usage: !grantlist
 * **channellist** - List configured channels and display channelKey of current channel. Usage: !channellist
 * **addcmd** - Add text command. For channel specific commands use *channelKey::* prefix. To exclude some command use *::DELETE* as text. For new line use *::NEWLINE* inside text. Usage: !addcmd command [text]
+* **setpugconfig** - set pug configurations. Usage: !setpugconfig [pug] [subcommand] [value]
+* **getpugconfig** - get pug configurations. Usage: !getpugconfig [pug] [subcommand]
+* **deltimeout** - clear nickname from timeouts. Usage: !deltimeout [player]
 
 <pre>
     !addcmd secondChannel::info This is pugbot!::NEWLINE Another text.
