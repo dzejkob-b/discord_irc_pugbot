@@ -4,15 +4,6 @@ This is PUGBOT for pickup games which processing multiple message sources (IRC, 
 
 Bot is inspired by old mIRC script mostly used for UT99 games: https://github.com/spydeee/PugBot - it implements most of its features and more.
 
-Other sources:
-
-* https://github.com/reactiflux/discord-irc
-* https://github.com/Throne3d/node-irc
-* https://discord.js.org
-* https://github.com/mapbox/node-sqlite3
-
-Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7y-Uo8QLNMQh6OI/edit?usp=sharing
-
 ## Bot commands
 
 ### Player commands
@@ -127,6 +118,54 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 * **quit** - Quit bot.
 * **restart** - Restart bot.
 
+## How to BAN users
+
+There are more possibilities, how to ban players. The ban command format is:
+
+```
+!ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
+```
+
+If the player does not exist, you must specify ban mask for the hostname. Otherwise, it bans specific player by ID on Discord or by AUTH on IRC. If you don't specify a duration, then the ban is permanent.
+
+### BAN examples:
+
+On Discord you simply ban player:
+
+```
+!ban player duration:24
+!ban discord:player duration:24
+!ban discord_id:123456 duration:24
+```
+
+(If you want to specify user by discord_id you must enable some extended developer flag in discord settings to see "Copy ID" under each player or channel)
+
+On IRC you may ban specific player - but the player **must** be online and **authed**:
+
+```
+!ban irc_player
+```
+
+Otherwise, you must specify regexp masks (make sure you have correctly escaped mask):
+
+```
+!ban some_player duration:24 mask:player\.users.*
+```
+
+Or specify more masks:
+
+```
+!ban some_player duration:24 reason:denied mask:player\.users.* mask:smt\.net\.dk.*
+```
+
+When you want update ban, type !bandef command:
+
+```
+!bandef some_player
+```
+
+It shows ban command with all parameters to further updates.
+
 ## Configuration
 
 Basic configuration entries are specified in **config.json** in [json format](https://www.json.org/). When the bot starts, it creates **config_live.json** and copies some configurations (like text commands) which are configurable trough bot commands.
@@ -201,50 +240,12 @@ https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID_HERE&scope=bot
 
 To get Discord channel id, follow these steps: https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
 
-## How to BAN users
 
-There are more possibilities, how to ban players. The ban command format is:
+## Other sources:
 
-```
-!ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
-```
+* https://github.com/reactiflux/discord-irc
+* https://github.com/Throne3d/node-irc
+* https://discord.js.org
+* https://github.com/mapbox/node-sqlite3
 
-If the player does not exist, you must specify ban mask for the hostname. Otherwise, it bans specific player by ID on Discord or by AUTH on IRC. If you don't specify a duration, then the ban is permanent.
-
-### BAN examples:
-
-On Discord you simply ban player:
-
-```
-!ban player duration:24
-!ban discord:player duration:24
-!ban discord_id:123456 duration:24
-```
-
-(If you want to specify user by discord_id you must enable some extended developer flag in discord settings to see "Copy ID" under each player or channel)
-
-On IRC you may ban specific player - but the player **must** be online and **authed**:
-
-```
-!ban irc_player
-```
-
-Otherwise, you must specify regexp masks (make sure you have correctly escaped mask):
-
-```
-!ban some_player duration:24 mask:player\.users.*
-```
-
-Or specify more masks:
-
-```
-!ban some_player duration:24 reason:denied mask:player\.users.* mask:smt\.net\.dk.*
-```
-
-When you want update ban, type !bandef command:
-
-```
-!bandef some_player
-```
-
-It shows ban command with all parameters to further updates.
+Old checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7y-Uo8QLNMQh6OI/edit?usp=sharing
