@@ -15,62 +15,99 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 
 ## Bot commands
 
-* **command** - Shows documentation. Usage: !command [command]
+### Player commands
+
 * **join** - Join to pug. Usage: !join [pug]
-* **addplayer** - Add player to pug. Usage: !addplayer [pug] playername
-* **delplayer** - Remove player from pug. Optionally, you can specify the number of seconds after which the player cannot reconnect. Usage: !delplayer [pug] playername [timeout]
-* **rename** - Replace player in pug by someone else. Usage: !rename [pug] player newPlayer
-* **addrandom** - Adds random players to pug. Usage: !addrandom [pug] [playersCount] [tag]
-* **addcustom** - Adds custom imaginary player to pug. Usage: !addrandom [pug] playername [tag]
+* **tag** - Add specific tag to your nick in pug. May use only alphanumeric characters. Usage: !tag [pug] value
+* **deltag** - Remove tag from nick. Usage: !deltag [pug]
+* **here** - Refresh your time information to prevent being kicked from inactivity. Usage: !here
 * **leave** - Leave pug. Usage: !leave [pug] [reason]
 * **lva** - Leave all pugs you joined. Usage: !lva [reason]
 * **list** - List all players which are joined to the pug. Usage: !list [pug]
 * **listall** - List all pugs along all channels. Usage: !listall
-* **avgpick** - Display avg picks of players which are joined to the pug. Usage: !avgpick [pug]
-* **tag** - Add specific tag to your nick in pug. May use only alphanumeric characters. Usage: !tag [pug] value
-* **deltag** - Remove tag from nick. Usage: !deltag [pug]
-* **limitnocapt** - Limit the number of player "nocapt" tag. Usage: !limitnocapt [value].
-* **here** - Refresh your time information to prevent being kicked from inactivity. Usage: !here
+* **vote** - Vote for somebody to become a captain (May use only when pug is filled). Usage: !vote playername
+* **unvote** - Remove your votes. Usage: !unvote
+* **promote** - Promotes actual state of the pug on channel (use !promoteall to display on all channels). Usage: !promote [pug]
+* **rules** - Show rules. Usage: !rules
+* **rule** - Show specific rule or remind user of a specific rule. Usage !rule number [user]
+* **mention** - Mention and highlight user. Usage: !mention playername
 * **welcome** - Send welcome message to user. Usage: !welcome playername
+* **discord** - List available Discord players. Usage: !discord
+
+### Captain commands
+
 * **captain** - Force yourself to become captain (May use only when pug is filled). Usage: !captain
 * **setcaptain** - Force someone else to become captain (May use only when pug is filled). Usage: !setcaptain playername [color]
 * **unsetcaptain** - Unset captain on some team and roll another one. Usage: !unsetcaptain color
-* **teams** - Show teams during player picks. Usage: !teams
-* **vote** - Vote for somebody to become a captain (May use only when pug is filled). Usage: !vote playername
-* **unvote** - Remove your votes. Usage: !unvote
 * **captainforce** - Skip waiting and force random captain choose. Usage: !captainforce
+* **teams** - Show teams during player picks. Usage: !teams
 * **turn** - Display which captain is currently picking players. Usage: !turn
 * **pick** - Pick player to your team (May use only captain). Usage: !pick playername|playernumber
-* **promote** - Promotes actual state of the pug on channel (use !promoteall to display on all channels). Usage: !promote [pug]
+
+### Pug reset
+
+* **reset** - Reset pug to player picking and captain picking. Usage: !reset [pug]
+* **fullreset** - Reset pug to zero players. Usage: !fullreset [pug]
+
+### Stats
+
+* **avgpick** - Display avg picks of players which are joined to the pug. Usage: !avgpick [pug]
 * **last** - Display last filled pug. Usage: !last [pug] [historycount] [historyindex]
 * **plast** - Shows last filled pug of specified player. Usage: !plast [playername] [pug] [historycount] [historyindex]
 * **mylast** - Shows last filled pug of current player. Usage: !mylast [pug] [historycount] [historyindex]
-* **reset** - Reset pug to player picking and captain picking. Usage: !reset [pug]
-* **fullreset** - Reset pug to zero players. Usage: !fullreset [pug]
-* **addhistory** - Add pug history entry. Usage: !addhistory [pug] [time] [player1] [player2] [player3] ...
-* **createpug** - Create pug. Usage: !createpug pugName playersCount [teamsCount]
-* **quickpug** - Create quickpug (Non-admin players are allowed to create one quickpug). Usage: !quickpug pugName playersCount [teamsCount]
-* **deletepug** - Delete pug (Non-admin players are allowed to delete only quickpug which they created). Usage: !deletepug pugName
+* **stats** - Display pug statistics of specific player. Usage: !stats [pug] playername
+* **mystats** - Display your own statistics. Usage: !mystats
+
+### Admin commands
+
+* **rename** - Replace player in pug by someone else. Usage: !rename [pug] player newPlayer
+* **addplayer** - Add player to pug. Usage: !addplayer [pug] playername
+* **delplayer** - Remove player from pug. Optionally, you can specify the number of seconds after which the player cannot reconnect. Usage: !delplayer [pug] playername [timeout]
 * **ban** - Ban user. For IRC users when using MASK the "playername" represents ban key. Usage: !ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
 * **bandef** - Show ban definition - return ban command for possible update. Usage: !bandef [playername|key]
 * **delban** - Delete ban. Usage: !delban playername
 * **banlist** - Show banned users.
-* **discord** - List available Discord players. Usage: !discord
-* **mention** - Mention and highlight user. Usage: !mention playername
-* **rules** - Show rules. Usage: !rules
-* **rule** - Show specific rule or remind user of a specific rule. Usage !rule number [user]
-* **stats** - Display pug statistics of specific player. Usage: !stats [pug] playername
-* **mystats** - Display your own statistics. Usage: !mystats
-* **userinfo** - Display user info. Usage: !userinfo playername
 * **authlevel** - Display your auth-level. Usage: !authlevel
 * **grant** - Set auth-level to some user. Use negative values to ban. Usage: !grant playername authLevel
 * **delgrant** - Remove user from grant table. Usage: !delgrant playername
 * **grantlist** - List granted users. Usage: !grantlist
 * **channellist** - List configured channels and display channelKey of current channel. Usage: !channellist
-* **addcmd** - Add text command. For channel specific commands use *channelKey::* prefix. To exclude some command use *::DELETE* as text. For new line use *::NEWLINE* inside text. Usage: !addcmd command [text]
-* **setpugconfig** - set pug configurations. Usage: !setpugconfig [pug] [subcommand] [value]
-* **getpugconfig** - get pug configurations. Usage: !getpugconfig [pug] [subcommand]
 * **deltimeout** - clear nickname from timeouts. Usage: !deltimeout [player]
+* **say** - Say message. Usage: !say [message]
+* **command** - Shows documentation. Usage: !command [command]
+
+### Pugs configuration
+
+* **createpug** - Create pug. Usage: !createpug pugName playersCount [teamsCount]
+* **quickpug** - Create quickpug (Non-admin players are allowed to create one quickpug). Usage: !quickpug pugName playersCount [teamsCount]
+* **deletepug** - Delete pug (Non-admin players are allowed to delete only quickpug which they created). Usage: !deletepug pugName
+* **limitnocapt** - Limit the number of player "nocapt" tag. Usage: !limitnocapt [value].
+* **getpugconfig** - get pug configuration. Usage: !getpugconfig [pug] [subcommand]
+* **setpugconfig** - set pug configurations. Usage: !setpugconfig [pug] [subcommand] [value]
+
+<pre>
+    // Show pug configuration
+    !getpugconfig ctf
+    
+    // Player rejoin cooldown in seconds
+    !setpugconfig ctf plcooldown 60
+    
+    // Captain idle cooldown in seconds
+    !setpugconfig ctf cptcooldown 300
+    
+    // Captain idle in seconds
+    !setpugconfig ctf cptidle 180
+    
+    // Number of possible captain votes
+    !setpugconfig ctf votes 1
+    
+    // Player picking strategy (numbers of picked players alternating by teams)
+    !setpugconfig ctf picksteps 1,2,2
+</pre>
+
+### Bot configuration
+
+* **addcmd** - Add text command. For channel specific commands use *channelKey::* prefix. To exclude some command use *::DELETE* as text. For new line use *::NEWLINE* inside text. Usage: !addcmd command [text]
 
 <pre>
     !addcmd secondChannel::info This is pugbot!::NEWLINE Another text.
@@ -79,10 +116,17 @@ Checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7
 </pre>
 
 * **delcmd** - Remove text command. Usage: !delcmd command
-* **say** - Say message. Usage: !say [message]
+
+### Debug + development
+
+* **addrandom** - Adds random players to pug. Usage: !addrandom [pug] [playersCount] [tag]
+* **addcustom** - Adds custom imaginary player to pug. Usage: !addrandom [pug] playername [tag]
+* **addhistory** - Add pug history entry. Usage: !addhistory [pug] [time] [player1] [player2] [player3] ...
+* **userinfo** - Display nick based user info on all platforms. Usage: !userinfo2 [playername]
+* **userinfo2** - Display user info. Usage: !userinfo [playername]
 * **quit** - Quit bot.
 * **restart** - Restart bot.
-            
+
 ## Configuration
 
 Basic configuration entries are specified in **config.json** in [json format](https://www.json.org/). When the bot starts, it creates **config_live.json** and copies some configurations (like text commands) which are configurable trough bot commands.
