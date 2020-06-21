@@ -48,6 +48,7 @@
 			div.ctrl button { width : 130px;height : 50px;font-size : 16px;padding-left : 45px;text-align : left;display : inline-block; }
 			div.ctrl button+button { margin-left : 20px; }
 			div.ctrl button.status { background-image : url('ico_status.png');background-repeat : no-repeat;background-position : 10px 50%; }
+			div.ctrl button.pull { background-image : url('ico_pull.png');background-repeat : no-repeat;background-position : 10px 50%; }
 			div.ctrl button.reboot { background-image : url('ico_restart.png');background-repeat : no-repeat;background-position : 10px 50%; }
 			
 			pre {  border : 1px solid #c2fcff;background-color : #edfeff;padding : 30px;font-family : Courier new;font-size : 14px;margin : 20px 0 0 0;display : inline-block;text-align : left; }
