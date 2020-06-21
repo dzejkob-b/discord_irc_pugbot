@@ -59,6 +59,7 @@
 		<form method="post" action="<?php echo $self; ?>">
 			<div class="ctrl">
 				<button type="submit" name="status" class="status">Status</button>
+				<button type="submit" name="pull" class="pull" onclick="return confirm('Do you really want git pull from master?')">Pull</button>
 				<button type="submit" name="reboot" class="reboot" onclick="return confirm('Are you sure you want to restart the service?')">Reboot</button>
 			</div>
 		</form>
@@ -71,7 +72,14 @@
 					$out = trim(shell_exec($cmd));
 					echo '<pre>' . $out . '</pre>';
 					break;
-					
+
+				case "pull" :
+					$cmd = "git pull origin master 2>&1";
+
+					$out = trim(shell_exec($cmd));
+					echo '<pre>' . $out . '</pre>';
+					break;
+
 				case "reboot" :
 					$cmd = "sudo systemctl restart discord_bot.service 2>&1";
 					
