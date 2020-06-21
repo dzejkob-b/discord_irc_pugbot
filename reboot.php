@@ -8,6 +8,8 @@
 		$action = "status";
 	} else if (isset($_POST["reboot"])) {
 		$action = "reboot";
+	} else if (isset($_POST["pull"])) {
+		$action = "pull";
 	}
 	
 	if ($action) {
