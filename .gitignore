@@ -39,6 +39,7 @@ dist/
 # Other
 
 .idea/
+.vscode/
 crash
 stats.db
 stats.txt
