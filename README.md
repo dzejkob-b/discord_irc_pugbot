@@ -49,6 +49,7 @@ Bot is inspired by old mIRC script mostly used for UT99 games: https://github.co
 * **mylast** - Shows last filled pug of current player. Usage: !mylast [pug] [historycount] [historyindex]
 * **stats** - Display pug statistics of specific player. Usage: !stats [pug] playername
 * **mystats** - Display your own statistics. Usage: !mystats
+* **trend** - Display daily pug trend based on the method of least squares. Usage: !trend [pug]
 
 ### Admin commands
 
