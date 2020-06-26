@@ -27,7 +27,7 @@ Bot is inspired by old mIRC script mostly used for UT99 games: https://github.co
 
 ### Captain commands
 
-* **captain** - Force yourself to become captain (May use only when pug is filled). Usage: !captain
+* **captain** - Force yourself to become captain (May use only when pug is filled). Usage: !captain [color]
 * **setcaptain** - Force someone else to become captain (May use only when pug is filled). Usage: !setcaptain playername [color]
 * **unsetcaptain** - Unset captain on some team and roll another one. Usage: !unsetcaptain color
 * **captainforce** - Skip waiting and force random captain choose. Usage: !captainforce
