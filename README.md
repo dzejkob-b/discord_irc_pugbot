@@ -208,6 +208,7 @@ Note: irc channels become case-insensitive now - #tHiRd and #third are the same 
 * **ircAuthUsersOnly** - allow specific actions to authed users only like .join (discord id or irc auth).
 * **captainPicking** - default captain picking method. Possible values: *random* (default - captain is picked randomly), *avgpick* (prefered players with higher pick rating)
 * **rejoinTimeout** - default pug rejoin timeout in seconds.
+* **playMultiPugs** - allow players to play multiple pugs (default false). If set to true, one player may occurs in more filled pugs.
 * **format** - variable formatting of cross messages.
 * **textCommands** - predefined text commands (each command must be defined as array of strings).
 * **authUsers** - users and they auth levels (Discord ids, IRC auths or IRC hosts).
