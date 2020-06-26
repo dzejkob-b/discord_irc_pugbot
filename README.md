@@ -43,6 +43,7 @@ Bot is inspired by old mIRC script mostly used for UT99 games: https://github.co
 ### Stats
 
 * **avgpick** - Display avg picks of players which are joined to the pug. Usage: !avgpick [pug]
+* **avgpickspec** - Parametric display of avg picks of players. For method see pug configuration options. Usage: !avgpick [pug] [method] [player1-N]
 * **last** - Display last filled pug. Usage: !last [pug] [historycount] [historyindex]
 * **plast** - Shows last filled pug of specified player. Usage: !plast [playername] [pug] [historycount] [historyindex]
 * **mylast** - Shows last filled pug of current player. Usage: !mylast [pug] [historycount] [historyindex]
@@ -92,8 +93,17 @@ Bot is inspired by old mIRC script mostly used for UT99 games: https://github.co
     // Number of possible captain votes
     !setpugconfig ctf votes 1
     
+    // Set maximum possible number of nocapt players
+    !setpugconfig ctf limitnocapttag 5
+    
     // Player picking strategy (numbers of picked players alternating by teams)
     !setpugconfig ctf picksteps 1,2,2
+    
+    // Avg pick statistic method. Possible: 
+    // pastdays30 - from picks of past days
+    // pastpicks30 - from time-independent number of past picks
+    // sumarize - from global sumarized stats
+    !setpugconfig ctf avgpickmth pastdays30
 </pre>
 
 ### Bot configuration
