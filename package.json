@@ -21,7 +21,7 @@
         "irc-colors": "1.4.1",
         "irc-formatting": "1.0.0-rc3",
         "irc-upd": "0.8.1",
-        "lodash": "^4.17.4",
+        "lodash": "^4.17.19",
         "simple-markdown": "0.3.2",
         "sqlite3": "^4.2.0",
         "strip-json-comments": "2.0.1",
