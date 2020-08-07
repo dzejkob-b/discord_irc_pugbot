@@ -21,7 +21,7 @@
         "irc-colors": "1.4.1",
         "irc-formatting": "1.0.0-rc3",
         "irc-upd": "0.8.1",
-        "lodash": "^4.17.4",
+        "lodash": "^4.17.19",
         "simple-markdown": "0.3.2",
         "sqlite3": "^4.2.0",
         "strip-json-comments": "2.0.1",
@@ -29,15 +29,15 @@
     },
     "devDependencies": {
         "babel-cli": "^6.6.5",
-        "babel-core": "^6.7.4",
-        "babel-eslint": "^8.0.1",
+        "babel-core": "^6.26.3",
+        "babel-eslint": "^8.2.6",
         "babel-preset-node6": "^11.0.0",
         "babel-preset-stage-0": "^6.5.0",
-        "chai": "^4.0.2",
-        "coveralls": "^3.0.0",
-        "mocha": "^5.0.0",
-        "nyc": "^11.0.3",
-        "sinon": "^4.0.1",
+        "chai": "^4.2.0",
+        "coveralls": "^3.1.0",
+        "mocha": "^5.2.0",
+        "nyc": "^11.9.0",
+        "sinon": "^4.5.0",
         "sinon-chai": "^2.8.0"
     }
 }

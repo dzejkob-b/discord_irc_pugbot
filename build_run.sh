@@ -1,3 +1,11 @@
 #!/bin/bash
-npm run build &> log.txt && npm run start -- --config config.json &> log.txt 
 
+if [ -f "log.txt" ]; then
+    if [ ! -d "logs" ]; then
+        mkdir "logs"
+    fi
+
+    mv "log.txt" "logs/log_"$(date +"%Y_%m_%d_%H_%M_%S")".txt"
+fi
+
+npm run build &> log.txt && npm run start -- --config config.json &> log.txt
