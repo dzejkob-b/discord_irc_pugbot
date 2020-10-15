@@ -103,7 +103,7 @@ Bot is inspired by old mIRC script mostly used for UT99 games: https://github.co
     // Avg pick statistic method. Possible: 
     // pastdays30 - from picks of past days
     // pastpicks30 - from time-independent number of past picks
-    // sumarize - from global sumarized stats
+    // sumarize - from global summarized stats
     !setpugconfig ctf avgpickmth pastdays30
 </pre>
 
