@@ -42,14 +42,16 @@ Bot is inspired by old mIRC script mostly used for UT99 games: https://github.co
 
 ### Stats
 
-* **avgpick** - Display avg picks of players which are joined to the pug. Usage: !avgpick [pug]
+* **avgpick** - Display avg picks of players which are joined to the pug (or with specifying players - same as avgpickspec). Usage: !avgpick [pug] [method] [player1-N]
 * **avgpickspec** - Parametric display of avg picks of players. For method see pug configuration options. Usage: !avgpick [pug] [method] [player1-N]
 * **last** - Display last filled pug. Usage: !last [pug] [historycount] [historyindex]
 * **plast** - Shows last filled pug of specified player. Usage: !plast [playername] [pug] [historycount] [historyindex]
 * **mylast** - Shows last filled pug of current player. Usage: !mylast [pug] [historycount] [historyindex]
-* **stats** - Display pug statistics of specific player. Usage: !stats [pug] playername
-* **mystats** - Display your own statistics. Usage: !mystats
 * **trend** - Display daily pug trend based on the method of least squares. Usage: !trend [pug]
+* **stats** - Display pug statistics of specific player. Usage: !oldstats [pug] playername
+* **mystats** - Display your own statistics. Usage: !myoldstats [pug]
+* **oldstats** - Display pug statistics of specific player (from old summarized stats). Usage: !oldstats [pug] playername
+* **myoldstats** - Display your own statistics (from old summarized stats). Usage: !myoldstats
 
 ### Admin commands
 
@@ -103,7 +105,8 @@ Bot is inspired by old mIRC script mostly used for UT99 games: https://github.co
     // Avg pick statistic method. Possible: 
     // pastdays30 - from picks of past days
     // pastpicks30 - from time-independent number of past picks
-    // sumarize - from global summarized stats
+    // unlimited - from unlimited stats
+    // sumarize - from global summarized stats (old stats)
     !setpugconfig ctf avgpickmth pastdays30
 </pre>
 
