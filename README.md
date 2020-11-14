@@ -191,6 +191,7 @@ The sample configuration is in **config_sample.json** - just copy and modify:
 * **server** - IRC server.
 * **discordToken** - Discord bot application token (described below).
 * **discordClientId** - Discord bot application client id (described below).
+* **discordGuildId** - Discord guild (server) id (described below)
 * **channels** - Set of channel configuration where the bot is present. One of *channelDiscord* or *channelIrc* or both must be set per each key. Example:
 
 <pre>
@@ -254,6 +255,8 @@ To make bot join your channel, follow this link (with corresponding client id):
 https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID_HERE&scope=bot&permissions=0
 
 To get Discord channel id, follow these steps: https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
+
+Finding discord guild id (server id) is analogous.  
 
 
 ## Other sources:
