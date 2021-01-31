@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm run build && npm run debug -- --config config.json
+npm run build && CONFIG_FILE=config.json npm run debug -- --config config.json
