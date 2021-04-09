@@ -230,8 +230,9 @@ Note: irc channels become case-insensitive now - #tHiRd and #third are the same 
 
 When bot starts it also creates **persistent.json** file, which contains current state.
 
-## Installation
+## Running
 
+### Local
 The bot requires [nodejs](https://nodejs.org/) of version at least v6.14.
 
 Follow these steps:
@@ -244,6 +245,18 @@ Follow these steps:
 * run **./build_run.sh &**
 
 May check **log.txt** for errors. If bot does not work, kill that process and run **./build_run_debug.sh** to see the verbose output.
+
+### Docker
+Place configuration as `conf/config.json`
+
+Build: ```docker build . -t utctfpugbot```
+
+Running:
+
+Default config path is `conf/config.json`.<br/>
+Run: ```docker run --rm --name utctfpugbot utctfpugbot```
+
+Run + Overriding default config path (replace [PATH]):<br>```docker run --rm --name utctfpugbot -e "CONFIG_FILE=[PATH]" utctfpugbot```
 
 ## Setting up Discord bot
 
