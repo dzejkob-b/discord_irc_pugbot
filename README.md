@@ -233,18 +233,22 @@ When bot starts it also creates **persistent.json** file, which contains current
 ## Running
 
 ### Local
-The bot requires [nodejs](https://nodejs.org/) of version at least v6.14.
+Prerequestion:
+- Python 2.7.+ (required)
+- [NodeJS](https://nodejs.org/) (Tested at [v12.22.1](https://nodejs.org/dist/latest-v12.x/)) (required)
 
 Follow these steps:
 
-
 * fetch this git branch to some directory
 * enter that directory
-* run **npm update**
+* run: `npm update`
 * set the configuration configuration (described above)
-* run **./build_run.sh &**
+* run: `npm install`
+* run: `./build_run.sh &`
 
-May check **log.txt** for errors. If bot does not work, kill that process and run **./build_run_debug.sh** to see the verbose output.
+May check *log.txt* for errors. If bot does not work, kill that process and run `./build_run_debug.sh` to see the verbose output.
+
+#### <a href="#troubleshoot_running_local">Troubleshoot</a> ####
 
 ### Docker
 Place configuration as `conf/config.json`
@@ -280,3 +284,12 @@ Finding discord guild id (server id) is analogous.
 * https://github.com/mapbox/node-sqlite3
 
 Old checklist: https://docs.google.com/spreadsheets/d/1gFSOZTbp-CDpXWbB0Q8C0KRc4r8U7y-Uo8QLNMQh6OI/edit?usp=sharing
+
+## Troubleshooting
+### [Local Installation](#troubleshoot_running_local)
+'python' is not recognized as an internal or external command<br>
+1. Make sure python installed directory exists in PATH [Link](https://www.pythoncentral.io/add-python-to-path-python-is-not-recognized-as-an-internal-or-external-command/)
+
+'python2.7' is not recognized as an internal or external command<br>
+1. Make sure python installed directory exists in PATH [Link](https://www.pythoncentral.io/add-python-to-path-python-is-not-recognized-as-an-internal-or-external-command/)
+2. Go to installed path and copy *python.exe* and paste it with new name *python2.7*.
