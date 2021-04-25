@@ -14,7 +14,7 @@
             // "runtimeExecutable": "npm",
             // "runtimeArgs": ["run-script", "debug"],
             "env": {
-                "CONFIG_FILE": "../discord_irc_pugbot_config.json"
+                "CONFIG_FILE": "conf/config.json"
             },
             "program": "${workspaceFolder}\\dist\\index.js"
         }
