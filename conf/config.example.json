@@ -1,19 +1,22 @@
 [
 	{
-		"discordDisable" : false,
-		"ircDisable" : false,
-
-		"ident" : "[IRC-IDENT]",
-		"nickname": "[IRC-NICK]",
-		"server": "[IRC-SERVER]",
-
-		"ircAuthName" : "",
-		"ircAuthPassword" : "",
-		"ircMode" : "+x",
-
-		"discordToken": "[APPLICATION-TOKEN]",
-		"discordClientId": "[APPLICATION-CLIENT-ID]",
-		"discordGuildId": "[GUILD-ID]",
+		"sources": {
+			"discord": {
+				"enable": true,
+				"token": "[APPLICATION-TOKEN]",
+				"clientId": "[APPLICATION-CLIENT-ID]",
+				"guildId": "[GUILD-ID]"
+			},
+			"irc": {
+				"enable": true,
+				"ident" : "[IRC-IDENT]",
+				"nickname": "[IRC-NICK]",
+				"server": "[IRC-SERVER]",
+				"authName" : "",
+				"authPassword" : "",
+				"mode" : "+x"
+			}
+		},
 
 		"channels": {
 			"default": {
@@ -22,15 +25,17 @@
 			}
 		},
 
-		"format": { 
-		  	"ircText": "[DIS] <{$displayUsername}> {$text}",
-		  	"urlAttachment": "<{$displayUsername}> {$attachmentURL}",
-		  	"discord": "[IRC] **<{$author}>** {$withMentions}"
-		},
-		"textCommands": {
-		},
 		"authUsers": {
 			"[DISCORD-ID-OR-IRC-NICKNAME]" : 10
+		},
+
+		"format": { 
+			"ircText": "[DIS] <{$displayUsername}> {$text}",
+			"urlAttachment": "<{$displayUsername}> {$attachmentURL}",
+			"discord": "[IRC] **<{$author}>** {$withMentions}"
+	  	},
+
+		"textCommands": {
 		}
 	}
 ]
