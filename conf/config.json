@@ -1,0 +1,41 @@
+[{
+    "ident": "bot",
+    "nickname": "discordYeah",
+    "server": "irc.quakenet.org",
+    "discordToken": "NzE3MDQ4OTcxMjQzMDI4NTU0.XtUp5A.qBd5yCnoj2v2He6Mt2GcJcsek20",
+    "discordClientId": "717048971243028554",
+
+    "discordGuildId": "724983209133080636",
+
+    "channelDiscord": "discord_channel_id",
+    "channelIrc": "#discordTest",
+
+    "discordDisable": false,
+    "ircDisable": true,
+
+    "ircAuthName": "auth",
+    "ircAuthPassword": "pass",
+    "ircMode": "+x",
+
+    "format": {
+        "ircText": "[DIS] <{$displayUsername}> {$text}",
+        "urlAttachment": "<{$displayUsername}> {$attachmentURL}",
+        "discord": "[IRC] **<{$author}>** {$withMentions}"
+    },
+    "textCommands": {
+        "help": [
+            "Hello!",
+            "This is bot."
+        ]
+    },
+    "authUsers": {
+        "237536236154126336": 10
+    },
+    "channels": {
+        "default": {
+            "channelDiscord": "724983209653436518",
+            "channelIrc": "#first"
+        }
+    }
+}
+]
