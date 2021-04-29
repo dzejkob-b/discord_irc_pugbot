@@ -1,6 +1,9 @@
 # Logs
 logs
 *.log
+log.txt
+log_debug.txt
+crash
 
 # Runtime data
 pids
@@ -27,9 +30,6 @@ node_modules
 # Environment variables and configuration
 .env
 .environment
-config.json
-config_live.json
-persistent.json
 history.json
 welcome.json
 
@@ -39,11 +39,12 @@ dist/
 # Other
 
 .idea/
-crash
-stats.db
-stats.txt
-log.txt
-log_debug.txt
+
 index.html
+
 # conf/config.example.json
 conf/config.test.json
+conf/config_live.json
+conf/persistent.json
+
+db/stats.db

@@ -1,0 +1,41 @@
+[
+	{
+		"sources": {
+			"discord": {
+				"enable": true,
+				"token": "[APPLICATION-TOKEN]",
+				"clientId": "[APPLICATION-CLIENT-ID]",
+				"guildId": "[GUILD-ID]"
+			},
+			"irc": {
+				"enable": true,
+				"ident" : "[IRC-IDENT]",
+				"nickname": "[IRC-NICK]",
+				"server": "[IRC-SERVER]",
+				"authName" : "",
+				"authPassword" : "",
+				"mode" : "+x"
+			}
+		},
+
+		"channels": {
+			"default": {
+				"channelDiscord": "[DISCORD-CHANNEL-ID]",
+				"channelIrc": "[#IRC-CHANNEL-NAME]"
+			}
+		},
+
+		"authUsers": {
+			"[DISCORD-ID-OR-IRC-NICKNAME]" : 10
+		},
+
+		"format": { 
+			"ircText": "[DIS] <{$displayUsername}> {$text}",
+			"urlAttachment": "<{$displayUsername}> {$attachmentURL}",
+			"discord": "[IRC] **<{$author}>** {$withMentions}"
+	  	},
+
+		"textCommands": {
+		}
+	}
+]
