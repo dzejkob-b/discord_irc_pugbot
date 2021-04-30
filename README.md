@@ -22,9 +22,17 @@ It was inspired by the old [Spydeee mIRC PugBot](https://github.com/spydeee/PugB
 - [Troubleshooting](#Troubleshooting)
 
 # Installation
-Setting up a bot involve in 2 steps.
+Setting up a bot involve in the following steps
 1. Create Discord Bot Application
-2. Installing the actual bot
+2. Fetching bot source code.
+3. Make a configuration file.
+4. Buld & Run: Choosing whatever running the bot on a given machine or using Docker. 
+    - Machine
+        - Build
+        - Run
+    - Docker
+        - Build
+        - Run
 
 ## 1. Create Discord Bot Application
 
@@ -39,20 +47,87 @@ To get Discord channel id, follow these steps: https://support.discordapp.com/hc
 
 Finding discord guild id (server id) is analogous. 
 
-## 2. Installing the actual bot
+## 2. Fetching bot source code
+If you're using git, use `git clone` command otherwise download the zip file and extract it to a choosen directory.
+
+## 3. Configuration
+
+Copy Basic configuration file from *conf/config_example.json* to *conf/config.json* and modify it.
+At bot first initialization, it creates *conf/config_live.json* and copies some configurations (like text commands) which are configurable trough bot commands.
+When bot starts it also creates *conf/persistent.json* file, which contains pickup current state.
+
+```json
+[
+	{
+		"sources": {
+			"discord": {
+				"enabled": true,
+				"token": "[APPLICATION-TOKEN]", // Discord bot application token
+				"clientId": "[APPLICATION-CLIENT-ID]", // Discord bot application client id. (described below)
+				"guildId": "[GUILD-ID]" // Discord guild (server) id. (described below)
+			},
+			"irc": {
+				"enabled": true,
+				"ident" : "[IRC-IDENT]", // Keep one permanent id for one bot application.
+				"nickname": "[IRC-NICK]",
+				"server": "[IRC-SERVER]",
+				"authName" : "", // authentification user (uses AUTH command and PRIVMSG Q@CServe.quakenet.org for quakenet).
+				"authPassword" : "", // IRC authentification password
+				"mode" : "+x" // additional IRC mode
+			}
+		},
+
+		"channels": {
+			"default": { // bind 2way communication
+				"channelDiscord": "[DISCORD-CHANNEL-ID]", // discord channel id
+				"channelIrc": "[#IRC-CHANNEL-NAME]" // irc channel name
+			}
+		},
+
+        // users and they auth levels (Discord ids, IRC auths or IRC hosts).
+		"authUsers": {
+			"[DISCORD-ID-OR-IRC-NICKNAME]" : 10 // e.g. discord user id, irc name
+		},
+
+        // variable formatting of cross messages.
+		"format": { 
+			"ircText": "[DIS] <{$displayUsername}> {$text}",
+			"urlAttachment": "<{$displayUsername}> {$attachmentURL}",
+			"discord": "[IRC] **<{$author}>** {$withMentions}"
+	  	},
+
+        // predefined text commands (each command must be defined as array of strings).
+		"textCommands": {
+		},
+
+        // default captain picking method. Possible values: *random*, *avgpick*. [default: random]
+        "captainPicking": "random",
+
+        // default pug rejoin timeout in seconds. [default: 30]
+        "rejoinTimeout": 30,
+
+        // allow players to play multiple pugs. If set to true, one player may occurs in more filled pugs. [default: false]
+        "playMultiPugs": false
+	}
+]
+```
+
+Note for IRC: Some networks does enforce channel names case-sensitive, so that #tHiRd and #third are consider different channels, please make sure you use the correct sensetive name.
+
+## 4. Buld & Run
 You can choose to run it on your local computer or using docker.
-### Local
+### Machine
 Prerequiesition
 * [NodeJS](https://nodejs.org/) (Tested at [v12.22.1](https://nodejs.org/dist/latest-v12.x/)) (required)
 * Python 2.7.+ (required)
 
 Steps
-* Git clone to local folder or Download code as Zip and extract to local folder.
-* Open Shell (In Windows `cmd`) and navigate to the extracted folder.
-* Run: `npm install` this will installed all neccessary packages bot depends on.
-* run: `./build_run.sh &`
+* Navigate to extracted directory using a Terminal (Windows `cmd`, Linux: Termianl) and run `npm install` this will installed all neccessary packages bot depends on.
+* Build: `npm build`.
+* Run: `npm run start`
+* In linux you can, both build and run togther using: `./build_run.sh &`.
 
-May check *log.txt* for errors. If bot does not work, kill that process and run `./build_run_debug.sh` to see the verbose output.
+May check *logs/log.txt* for errors. If bot does not work, kill that process and run `./build_run_debug.sh` to see the verbose output.
 
   <a href="#troubleshoot_running_local">Troubleshoot</a>
 
@@ -61,65 +136,12 @@ Place configuration as `conf/config.json`
 
 Build: ```docker build . -t utctfpugbot```
 
-Running:
+Run:
 
 Default config path is `conf/config.json`.<br/>
 Run: ```docker run --rm --name utctfpugbot utctfpugbot```
 
 Run + Overriding default config path (replace [PATH]):<br>```docker run --rm --name utctfpugbot -e "CONFIG_FILE=[PATH]" utctfpugbot```
-
-# Configuration
-
-Basic configuration entries are specified in **config.json** in [json format](https://www.json.org/). When the bot starts, it creates **config_live.json** and copies some configurations (like text commands) which are configurable trough bot commands.
-
-The sample configuration is in **config_sample.json** - just copy and modify:
-
-* **ident** - bot identification. Keep one permanent id for one bot application.
-* **nickname** - bot nickname on IRC.
-* **server** - IRC server.
-* **discordToken** - Discord bot application token (described below).
-* **discordClientId** - Discord bot application client id (described below).
-* **discordGuildId** - Discord guild (server) id (described below)
-* **channels** - Set of channel configuration where the bot is present. One of *channelDiscord* or *channelIrc* or both must be set per each key. Example:
-
-<pre>
-channels: {
-    'default' : {
-        'channelDiscord' : '123456',
-        'channelIrc' : '#first'
-    },
-    'second' : {
-        'channelDiscord' : '778899',
-        'channelIrc' : '#second'
-    },
-    'another' : {
-        'channelIrc' : '#third'
-    }
-}
-</pre>
-
-Note: irc channels become case-insensitive now - #tHiRd and #third are the same for message input. But the bot joins the channels as is typed in configuration.
-
-* **channelDiscord** - bot channel id (described below) *(old configuration)*
-* **channelIrc** - channel on IRC. *(old configuration)*
-* **discordDisable** - set true to disable bot on Discord.
-* **ircDisable** - set true to disable bot on IRC (one message source must remain enabled).
-* **ircAuthName** - IRC authentification user (uses AUTH command and PRIVMSG Q@CServe.quakenet.org for quakenet).
-* **ircAuthPassword** - IRC authentification password.
-* **ircMode** - additional IRC mode.
-* **ircFloodDelay** - minimum delay between two messages sent to irc (in msecs).
-* **ircAuthUsersOnly** - allow specific actions to authed users only like .join (discord id or irc auth).
-* **captainPicking** - default captain picking method. Possible values: *random* (default - captain is picked randomly), *avgpick* (prefered players with higher pick rating)
-* **rejoinTimeout** - default pug rejoin timeout in seconds.
-* **playMultiPugs** - allow players to play multiple pugs (default false). If set to true, one player may occurs in more filled pugs.
-* **format** - variable formatting of cross messages.
-* **textCommands** - predefined text commands (each command must be defined as array of strings).
-* **authUsers** - users and they auth levels (Discord ids, IRC auths or IRC hosts).
-
-When bot starts it also creates **persistent.json** file, which contains current state.
-
-# Running
-
 # Commands
 Commands are prefixed with '.' or with exclamation mark '!'. e.g. .help, !help<br>
 [] = Required, <> = Optional
@@ -209,9 +231,9 @@ Commands are prefixed with '.' or with exclamation mark '!'. e.g. .help, !help<b
 ### Add Custom Commands
 *addcmd*<br>
 <pre>
-    !addcmd secondChannel::info This is pugbot!::NEWLINE Another text.
-    !addcmd servers Some text with servers.
-    !addcmd anotherChannel::servers ::DELETE
+!addcmd secondChannel::info This is pugbot!::NEWLINE Another text.
+!addcmd servers Some text with servers.
+!addcmd anotherChannel::servers ::DELETE
 </pre>
 
 ### Banning
@@ -261,34 +283,33 @@ It shows ban command with all parameters to further updates.
 
 ### Pickup Configurations
 ```
-    // Show pug configuration
-    !getpugconfig ctf
-    
-    // Player rejoin cooldown in seconds
-    !setpugconfig ctf plcooldown 60
-    
-    // Captain idle cooldown in seconds
-    !setpugconfig ctf cptcooldown 300
-    
-    // Captain idle in seconds
-    !setpugconfig ctf cptidle 180
-    
-    // Number of possible captain votes
-    !setpugconfig ctf votes 1
-    
-    // Set maximum possible number of nocapt players
-    !setpugconfig ctf limitnocapttag 5
-    
-    // Player picking strategy (numbers of picked players alternating by teams)
-    !setpugconfig ctf picksteps 1,2,2
-    
-    // Avg pick statistic method. Possible: 
-    // pastdays30 - from picks of past days
-    // pastpicks30 - from time-independent number of past picks
-    // unlimited - from unlimited stats
-    // sumarize - from global summarized stats (old stats)
-    !setpugconfig ctf avgpickmth pastdays30
-</pre>
+// Show pug configuration
+!getpugconfig ctf
+
+// Player rejoin cooldown in seconds
+!setpugconfig ctf plcooldown 60
+
+// Captain idle cooldown in seconds
+!setpugconfig ctf cptcooldown 300
+
+// Captain idle in seconds
+!setpugconfig ctf cptidle 180
+
+// Number of possible captain votes
+!setpugconfig ctf votes 1
+
+// Set maximum possible number of nocapt players
+!setpugconfig ctf limitnocapttag 5
+
+// Player picking strategy (numbers of picked players alternating by teams)
+!setpugconfig ctf picksteps 1,2,2
+
+// Avg pick statistic method. Possible: 
+// pastdays30 - from picks of past days
+// pastpicks30 - from time-independent number of past picks
+// unlimited - from unlimited stats
+// sumarize - from global summarized stats (old stats)
+!setpugconfig ctf avgpickmth pastdays30
 ```
 
 # Main Packages Used
