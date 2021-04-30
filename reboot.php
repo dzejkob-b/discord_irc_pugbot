@@ -51,6 +51,7 @@
 			div.ctrl button+button { margin-left : 20px; }
 			div.ctrl button.status { background-image : url('ico_status.png');background-repeat : no-repeat;background-position : 10px 50%; }
 			div.ctrl button.pull { background-image : url('ico_pull.png');background-repeat : no-repeat;background-position : 10px 50%; }
+			div.ctrl button.npm-install { background-image : url('npm.png');background-repeat : no-repeat;background-position : 10px 50%; }
 			div.ctrl button.reboot { background-image : url('ico_restart.png');background-repeat : no-repeat;background-position : 10px 50%; }
 			
 			pre {  border : 1px solid #c2fcff;background-color : #edfeff;padding : 30px;font-family : Courier new;font-size : 14px;margin : 20px 0 0 0;display : inline-block;text-align : left; }
@@ -63,6 +64,7 @@
 			<div class="ctrl">
 				<button type="submit" name="status" class="status">Status</button>
 				<button type="submit" name="pull" class="pull" onclick="return confirm('Do you really want git pull from master?')">Pull</button>
+				<button type="submit" name="npm-install" class="npm-install" onclick="return confirm('Do you really want npm install?')">Pull</button>
 				<button type="submit" name="reboot" class="reboot" onclick="return confirm('Are you sure you want to restart the service?')">Reboot</button>
 			</div>
 		</form>
@@ -82,6 +84,13 @@
 					$out = trim(shell_exec($cmd));
 					echo '<pre>' . $out . '</pre>';
 					break;
+
+				case "npm-install" :
+						$cmd = "npm install 2>&1";
+	
+						$out = trim(shell_exec($cmd));
+						echo '<pre>' . $out . '</pre>';
+						break;
 
 				case "reboot" :
 					$cmd = "sudo systemctl restart discord_bot.service 2>&1";
