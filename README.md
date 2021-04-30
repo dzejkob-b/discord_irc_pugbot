@@ -15,6 +15,9 @@ It was inspired by the old [Spydeee mIRC PugBot](https://github.com/spydeee/PugB
   - [Pickup](#Pickup)
   - [Pickup: Statistics](#Pickup:-Statistics)
   - [Examples](#Command-Examples)
+    - [Add Custom Commands](#Add-Custom-Commands)
+    - [Banning](#Banning)
+    - [Pickup Configurations](#Pickup-Configurations)
 - [Main Packages Used](#Main-Packages-Used)
 - [Troubleshooting](#Troubleshooting)
 
@@ -118,6 +121,7 @@ When bot starts it also creates **persistent.json** file, which contains current
 # Running
 
 # Commands
+Commands are prefixed with '.' or with exclamation mark '!'. e.g. .help, !help<br>
 [] = Required, <> = Optional
 
 
@@ -186,8 +190,77 @@ When bot starts it also creates **persistent.json** file, which contains current
 | getpugconfig | | Admin | get pug configuration. Usage: getpugconfig [pug] [subcommand]
 | setpugconfig | | Admin | set pug configurations. Usage: setpugconfig [pug] [subcommand] [value]
 
-Examples
+## Pickup: Statistics
+|  Command  |  Aliases | Permission | Description
+| :-- | :-- | :-- | :--
+| avgpick | | | Display avg picks of players which are joined to the pug (or with specifying players - same as avgpickspec). Usage: avgpick [pug] [method] [player1-N]
+| avgpickspec | | | Parametric display of avg picks of players. For method see pug configuration options. Usage: avgpick [pug] [method] [player1-N]
+| last | | | Display last filled pug. Usage: last [pug] [historycount] [historyindex]
+| plast | | | Shows last filled pug of specified player. Usage: plast [playername] [pug] [historycount] [historyindex]
+| mylast | | | Shows last filled pug of current player. Usage: mylast [pug] [historycount] [historyindex]
+| trend | | | Display daily pug trend based on the method of least squares. Usage: trend [pug]
+| stats | | | Display pug statistics of specific player. Usage: oldstats [pug] playername
+| mystats | | | Display your own statistics. Usage: myoldstats [pug]
+| oldstats | | | Display pug statistics of specific player (from old summarized stats). Usage: oldstats [pug] playername
+| myoldstats | | | Display your own statistics (from old summarized stats). Usage: myoldstats
+
+## Command Examples
+
+### Add Custom Commands
+*addcmd*<br>
 <pre>
+    !addcmd secondChannel::info This is pugbot!::NEWLINE Another text.
+    !addcmd servers Some text with servers.
+    !addcmd anotherChannel::servers ::DELETE
+</pre>
+
+### Banning
+
+There are more possibilities, how to ban players. The ban command format is:
+
+```
+!ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
+```
+
+If the player does not exist, you must specify ban mask for the hostname. Otherwise, it bans specific player by ID on Discord or by AUTH on IRC. If you don't specify a duration, then the ban is permanent.
+On Discord you simply ban player:
+
+```
+!ban player duration:24
+!ban discord:player duration:24
+!ban discord_id:123456 duration:24
+```
+
+How to obtain Discord UserId ? Follow [this link](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)
+
+On IRC you may ban specific player - but the player **must** be online and **authed**:
+
+```
+!ban irc_player
+```
+
+Otherwise, you must specify regexp masks (make sure you have correctly escaped mask):
+
+```
+!ban some_player duration:24 mask:player\.users.*
+```
+
+Or specify more masks:
+
+```
+!ban some_player duration:24 reason:denied mask:player\.users.* mask:smt\.net\.dk.*
+```
+
+When you want update ban, type !bandef command:
+
+```
+!bandef some_player
+```
+
+It shows ban command with all parameters to further updates.
+
+### Pickup Configurations
+```
     // Show pug configuration
     !getpugconfig ctf
     
@@ -216,77 +289,7 @@ Examples
     // sumarize - from global summarized stats (old stats)
     !setpugconfig ctf avgpickmth pastdays30
 </pre>
-
-## Pickup: Statistics
-|  Command  |  Aliases | Permission | Description
-| :-- | :-- | :-- | :--
-| avgpick | | | Display avg picks of players which are joined to the pug (or with specifying players - same as avgpickspec). Usage: avgpick [pug] [method] [player1-N]
-| avgpickspec | | | Parametric display of avg picks of players. For method see pug configuration options. Usage: avgpick [pug] [method] [player1-N]
-| last | | | Display last filled pug. Usage: last [pug] [historycount] [historyindex]
-| plast | | | Shows last filled pug of specified player. Usage: plast [playername] [pug] [historycount] [historyindex]
-| mylast | | | Shows last filled pug of current player. Usage: mylast [pug] [historycount] [historyindex]
-| trend | | | Display daily pug trend based on the method of least squares. Usage: trend [pug]
-| stats | | | Display pug statistics of specific player. Usage: oldstats [pug] playername
-| mystats | | | Display your own statistics. Usage: myoldstats [pug]
-| oldstats | | | Display pug statistics of specific player (from old summarized stats). Usage: oldstats [pug] playername
-| myoldstats | | | Display your own statistics (from old summarized stats). Usage: myoldstats
-
-## Command Examples
-
-*addcmd*<br>
-<pre>
-    !addcmd secondChannel::info This is pugbot!::NEWLINE Another text.
-    !addcmd servers Some text with servers.
-    !addcmd anotherChannel::servers ::DELETE
-</pre>
-
-## How to BAN users
-
-There are more possibilities, how to ban players. The ban command format is:
-
 ```
-!ban [playername|key] [reason:specified reason] [dur:ban duration in hours] [mask:irc host mask as regex]
-```
-
-If the player does not exist, you must specify ban mask for the hostname. Otherwise, it bans specific player by ID on Discord or by AUTH on IRC. If you don't specify a duration, then the ban is permanent.
-
-### BAN examples:
-
-On Discord you simply ban player:
-
-```
-!ban player duration:24
-!ban discord:player duration:24
-!ban discord_id:123456 duration:24
-```
-
-(If you want to specify user by discord_id you must enable some extended developer flag in discord settings to see "Copy ID" under each player or channel)
-
-On IRC you may ban specific player - but the player **must** be online and **authed**:
-
-```
-!ban irc_player
-```
-
-Otherwise, you must specify regexp masks (make sure you have correctly escaped mask):
-
-```
-!ban some_player duration:24 mask:player\.users.*
-```
-
-Or specify more masks:
-
-```
-!ban some_player duration:24 reason:denied mask:player\.users.* mask:smt\.net\.dk.*
-```
-
-When you want update ban, type !bandef command:
-
-```
-!bandef some_player
-```
-
-It shows ban command with all parameters to further updates.
 
 # Main Packages Used
 
