@@ -7,9 +7,7 @@ This NodeJS Bot was design for managing Pickup games from multiple sources, such
 It was inspired by the old [Spydeee mIRC PugBot](https://github.com/spydeee/PugBot) that was used for UT99 games and it's implementing most of its features and more.
 
 # Index
-- [Installation](#Installation)
-- [Configuration](#Configuration)
-- [Running](#Running)
+- [Setup](#Setup)
 - [Commands](#Commands)
   - [Administrators](#Administrators)
   - [Pickup](#Pickup)
@@ -21,7 +19,7 @@ It was inspired by the old [Spydeee mIRC PugBot](https://github.com/spydeee/PugB
 - [Main Packages Used](#Main-Packages-Used)
 - [Troubleshooting](#Troubleshooting)
 
-# Installation
+# Setup
 Setting up a bot involve in the following steps
 1. Create Discord Bot Application
 2. Fetching bot source code.
@@ -56,7 +54,7 @@ Copy Basic configuration file from *conf/config_example.json* to *conf/config.js
 At bot first initialization, it creates *conf/config_live.json* and copies some configurations (like text commands) which are configurable trough bot commands.
 When bot starts it also creates *conf/persistent.json* file, which contains pickup current state.
 
-```json
+``` js
 [
 	{
 		"sources": {
