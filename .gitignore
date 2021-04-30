@@ -42,7 +42,7 @@ dist/
 
 index.html
 
-# conf/config.example.json
+conf/config.json
 conf/config.test.json
 conf/config_live.json
 conf/persistent.json
