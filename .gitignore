@@ -47,4 +47,4 @@ conf/config.test.json
 conf/config_live.json
 conf/persistent.json
 
-db/stats.db
+db
