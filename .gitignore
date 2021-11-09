@@ -48,3 +48,5 @@ conf/config_live.json
 conf/persistent.json
 
 db
+
+.docs
