@@ -1,4 +1,4 @@
-FROM node:12.20.1-alpine3.12 as prep
+FROM node:12.22.7-alpine3.12 as prep
 
 ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
@@ -16,7 +16,7 @@ COPY .babelrc .eslintrc ./
 COPY lib lib
 RUN npm run build
 
-FROM node:12.20.1-alpine3.12 as app
+FROM node:12.22.7-alpine3.12 as app
 
 ENV CONFIG_FILE "conf/config.json"
 
