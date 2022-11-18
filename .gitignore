@@ -31,7 +31,7 @@ node_modules
 .env
 .environment
 history.json
-welcome.json
+conf/welcome.json
 
 # Build
 dist/

@@ -1,16 +1,31 @@
 {
-  "extends": "airbnb-base",
-  "parser": "babel-eslint",
-  "env": {
-    "mocha": true,
-    "node": true
-  },
-  "rules": {
-    "global-require": 0,
-    "comma-dangle": 0,
-    "func-names": 0,
-    "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
-    "import/prefer-default-export": 0,
-    "import/no-dynamic-require": 0
-  }
+	"plugins": ["prettier", "unused-imports"],
+	"extends": ["plugin:prettier/recommended"],
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": "latest"
+	},
+	"env": {
+		"es6": true
+	},
+	"rules": {
+		"prettier/prettier": [
+			"error",
+			{
+				"endOfLine": "auto",
+				"useTabs": true
+			}
+		],
+		"no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+		"unused-imports/no-unused-imports": "error",
+		"unused-imports/no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"varsIgnorePattern": "^_",
+				"args": "after-used",
+				"argsIgnorePattern": "^_"
+			}
+		]
+	}
 }
