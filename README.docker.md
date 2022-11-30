@@ -1,0 +1,2 @@
+docker build -t pugbottt2 .
+docker run --rm --name mybot2 -e "CONFIG_FILE=conf/config.json" -v "C:\Users\Orel\dockers\utctfpug\conf:/app/conf" -v "C:\Users\Orel\dockers\utctfpug\data:/app/data" -v "C:\Users\Orel\dockers\utctfpug\web:/app/web" pugbottt2

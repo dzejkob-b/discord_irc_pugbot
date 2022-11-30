@@ -1,5 +1,5 @@
 <?php
-    $dir = "logs";
+    $dir = "../logs";
     $list = array();
 
     if (($hand = opendir($dir)) != false) {
